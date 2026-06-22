@@ -1,10 +1,10 @@
 import express from "express";
 import { isAuthenticated } from "../middlewares/auth_middleware";
-import { chat_mode, video_mode } from "../controllers/connection_controller";
+import { handleMatchmaking } from "../controllers/connection_controller";
 
 const router = express();
 
-router.post("/chat",isAuthenticated, chat_mode);
-router.post("/video-connect",isAuthenticated, video_mode);
+router.post("/chat-mode", isAuthenticated, handleMatchmaking);
+router.post("/video-mode", isAuthenticated, handleMatchmaking);
 
 export default router;
